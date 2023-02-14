@@ -1,2 +1,11 @@
 {
+    "program.ProgramPicker.placeholder": "Select Program",
+    "program.programSummaries": "{count} program(s) found",
+    "program.program.name": "Program Name",
+    "program.program.validity": "Validity",
+    "program.deleteDialog.title": "Delete program",
+    "program.openNewTab": "Open in new tab",
+    "program.deleteDialog.message": "Are you sure you want to delete this program?",
+    "program.addNewProgram.tooltip": "Add new program",
+    "program.ProgramOverview.newTitle": "New Program"
 }
