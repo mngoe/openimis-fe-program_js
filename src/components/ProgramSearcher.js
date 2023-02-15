@@ -148,7 +148,7 @@ class ProgramSearcher extends Component {
 
 const mapStateToProps = (state) => ({
   rights: state.core?.i_user?.rights ?? [],
-  programs: state.admin.programsSummaries.items,
+  programs: state.admin.programsSummaries.programs,
   programsPageInfo: state.admin.programsSummaries.pageInfo,
   fetchingPrograms: state.admin.programsSummaries.isFetching,
   fetchedPrograms: state.admin.programsSummaries.fetched,
