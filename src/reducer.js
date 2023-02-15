@@ -35,7 +35,7 @@ function reducer(
     action,
 ) {
     switch (action.type) {
-        case "ADMIN_PROGRAMS_SUMMARIES_REQ":
+        case "PROGRAM_PROGRAMS_SUMMARIES_REQ":
             return {
                 ...state,
                 programsSummaries: {
@@ -45,7 +45,7 @@ function reducer(
                     error: null,
                 },
             };
-        case "ADMIN_PROGRAMS_SUMMARIES_RESP":
+        case "PROGRAM_PROGRAMS_SUMMARIES_RESP":
             return {
                 ...state,
                 programsSummaries: {
@@ -58,7 +58,7 @@ function reducer(
                     error: formatGraphQLError(action.payload),
                 },
             };
-        case "ADMIN_PROGRAMS_SUMMARIES_ERR":
+        case "PROGRAM_PROGRAMS_SUMMARIES_ERR":
             return {
                 ...state,
                 programsSummaries: {

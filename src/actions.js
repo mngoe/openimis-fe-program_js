@@ -13,7 +13,7 @@ const PROGRAM_SUMMARY_PROJECTION = [
 
 export function fetchProgramsSummaries(mm, filters) {
     const payload = formatPageQueryWithCount("program", filters, PROGRAM_SUMMARY_PROJECTION);
-    return graphql(payload, "ADMIN_PROGRAMS_SUMMARIES");
+    return graphql(payload, "PROGRAM_PROGRAMS_SUMMARIES");
 }
 
 export function deleteProgram(mm, program, clientMutationLabel) {

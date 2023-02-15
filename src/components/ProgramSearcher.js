@@ -89,13 +89,12 @@ class ProgramSearcher extends Component {
               <TabIcon />
             </IconButton>
           </Tooltip>
-          {this.props.rights.includes(RIGHT_PROGRAM_DELETE) && u.validityTo ? null : (
-            <Tooltip title={formatMessage(this.props.intl, "program", "deleteUser.tooltip")}>
-              <IconButton onClick={() => this.setState({ deleteUser: u })}>
-                <DeleteIcon />
-              </IconButton>
-            </Tooltip>
-          )}
+
+          <Tooltip title={formatMessage(this.props.intl, "program", "deleteUser.tooltip")}>
+            <IconButton onClick={() => this.setState({ deleteUser: u })}>
+              <DeleteIcon />
+            </IconButton>
+          </Tooltip>
         </>
       ),
     ];
@@ -148,11 +147,11 @@ class ProgramSearcher extends Component {
 
 const mapStateToProps = (state) => ({
   rights: state.core?.i_user?.rights ?? [],
-  programs: state.admin.programsSummaries.programs,
-  programsPageInfo: state.admin.programsSummaries.pageInfo,
-  fetchingPrograms: state.admin.programsSummaries.isFetching,
-  fetchedPrograms: state.admin.programsSummaries.fetched,
-  errorPrograms: state.admin.programsSummaries.error,
+  programs: state.program.programsSummaries.items,
+  programsPageInfo: state.program.programsSummaries.pageInfo,
+  fetchingPrograms: state.program.programsSummaries.isFetching,
+  fetchedPrograms: state.program.programsSummaries.fetched,
+  errorPrograms: state.program.programsSummaries.error,
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({ fetchProgramsSummaries, deleteProgram }, dispatch);
