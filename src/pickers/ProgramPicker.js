@@ -28,6 +28,7 @@ const ProgramPicker = (props) => {
           program(first: 10) {
               edges {
                   node {
+                      id
                       idProgram
                       nameProgram
                       validityDate

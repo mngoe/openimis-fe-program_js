@@ -6,6 +6,7 @@ import {
 } from "@openimis/fe-core";
 
 const PROGRAM_SUMMARY_PROJECTION = [
+    "id",
     "idProgram",
     "nameProgram",
     "validityDate"
