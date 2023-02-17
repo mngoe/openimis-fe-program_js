@@ -7,5 +7,7 @@
     "program.openNewTab": "Open in new tab",
     "program.deleteDialog.message": "Are you sure you want to delete this program?",
     "program.addNewProgram.tooltip": "Add new program",
-    "program.ProgramOverview.newTitle": "New Program"
+    "program.ProgramOverview.newTitle": "New Program",
+    "program.programPicker": "Program",
+    "program.programPicker.placeholder": "Select Program"
 }

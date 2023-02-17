@@ -44,8 +44,8 @@ const ProgramPicker = (props) => {
     <Autocomplete
       multiple={multiple}
       required={required}
-      placeholder={placeholder ?? formatMessage("ProgramPicker.placeholder")}
-      label={label ?? formatMessage("ProgramPicker.label")}
+      placeholder={placeholder ?? formatMessage("program.programPicker.placeholder")}
+      label={label ?? formatMessage("program.label")}
       error={error}
       withLabel={withLabel}
       withPlaceholder={withPlaceholder}
