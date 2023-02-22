@@ -29,6 +29,11 @@ function reducer(
             error: null,
         },
 
+        fetchingProgram: false,
+        fetchedProgram: false,
+        program: null,
+        errorProgram: null,
+
         submittingMutation: false,
         mutation: {},
     },
@@ -69,6 +74,29 @@ function reducer(
                     items: [],
                     error: formatGraphQLError(action.payload),
                 },
+            };
+        case "PROGRAM_PROGRAM_REQ":
+            return {
+                ...state,
+                fetchingProgram: true,
+                fetchedProgram: false,
+                program: null,
+                errorProgram: null,
+            };
+        case "PROGRAM_PROGRAM_RESP":
+            var prgrms = parseData(action.payload.data.program);
+            return {
+                ...state,
+                fetchingProgram: false,
+                fetchedProgram: true,
+                program: !!prgrms && prgrms.length > 0 ? prgrms[0] : null,
+                errorProgram: formatGraphQLError(action.payload),
+            };
+        case "PROGRAM_PROGRAM_ERR":
+            return {
+                ...state,
+                fetchingProgram: false,
+                errorProgram: formatServerError(action.payload),
             };
         case "PROGRAM_PROGRAM_MUTATION_REQ":
             return dispatchMutationReq(state, action);

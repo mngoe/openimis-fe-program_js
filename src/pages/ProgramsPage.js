@@ -12,12 +12,12 @@ const styles = (theme) => ({
 });
 
 class ProgramsPage extends Component {
-  onDoubleClick = (u, newTab = false) => {
-    historyPush(this.props.modulesManager, this.props.history, "program.programOverview", [u.idProgram], newTab);
+  onDoubleClick = (u) => {
+    historyPush(this.props.modulesManager, this.props.history, "program.route.program", [u.nameProgram]);
   };
 
   onAdd = () => {
-    historyPush(this.props.modulesManager, this.props.history, "program.programNew");
+    historyPush(this.props.modulesManager, this.props.history, "program.route.program");
   };
 
   render() {

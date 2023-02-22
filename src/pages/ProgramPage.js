@@ -1,37 +1,44 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { Component } from "react";
+import { injectIntl } from "react-intl";
+import { connect } from "react-redux";
 import { withTheme, withStyles } from "@material-ui/core/styles";
-import { withModulesManager, combine, withHistory, historyPush, useTranslations } from "@openimis/fe-core";
+import { withModulesManager, withHistory, historyPush } from "@openimis/fe-core";
 import ProgramForm from "../components/ProgramForm";
 
 const styles = (theme) => ({
   page: theme.page,
 });
 
-const ProgramPage = (props) => {
-  const { modulesManager, history, match, classes } = props;
-  const [resetKey, setResetKey] = useState(Date.now());
-  const dispatch = useDispatch();
+class ProgramPage extends Component {
 
-  const add = () => {
-    setResetKey(Date.now());
-    historyPush(modulesManager, history, "program.programNew");
+  add = () => {
+    historyPush(this.props.modulesManager, this.props.history, "program.route.program");
   };
 
-  const save = (program) => {
+  save = (program) => {
   };
-  return (
-    <div className={classes.page}>
-      <ProgramForm
-        key={resetKey}
-        readOnly={false}
-        userId={match.params.user_id}
-        back={() => historyPush(modulesManager, history, "program.programs")}
-      />
-    </div>
-  );
-};
 
-const enhance = combine(withHistory, withModulesManager, withTheme, withStyles(styles));
+  render() {
+    const { modulesManager, history, classes, program_name } = this.props;
+    return (
+      <div className={classes.page}>
+        <ProgramForm
+          program_name={program_name}
+          back={(e) => historyPush(modulesManager, history, "program.programs")}
+          add={this.add}
+          save={this.save}
+        />
+      </div>
+    );
+  }
+}
 
-export default enhance(ProgramPage);
+const mapStateToProps = (state, props) => ({
+  program_name: props.match.params.program_name,
+});
+
+export default withHistory(
+  withModulesManager(
+    connect(mapStateToProps)(injectIntl(withTheme(withStyles(styles)(ProgramPage)))),
+  ),
+);
