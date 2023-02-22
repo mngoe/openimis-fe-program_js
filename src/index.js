@@ -23,10 +23,7 @@ const DEFAULT_CONFIG = {
   "core.Router": [
     { path: ROUTE_PROGRAM_PROGRAM_NEW, component: ProgramPage },
     { path: ROUTE_PROGRAM_PROGRAMS, component: ProgramsPage },
-    {
-      path: `${ROUTE_PROGRAM_PROGRAM_OVERVIEW}/:program_id`,
-      component: ProgramPage,
-    },
+    { path: ROUTE_PROGRAM_PROGRAM + "/:program_name?", component: ProgramPage },
   ],
 }
 
