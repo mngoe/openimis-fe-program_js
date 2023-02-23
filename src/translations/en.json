@@ -13,5 +13,7 @@
     "program.programPicker.placeholder": "Select Program",
     "program.edit.page.title": "Program {name}",
     "program.edit.title": "Program {name}",
-    "program.ProgramForm.name": "Name of program"
+    "program.ProgramForm.name": "Name of program",
+    "program.createProgram.mutationLabel": "Create program {name}",
+    "program.updateProgram.mutationLabel": "Update program {name}"
 }

@@ -35,6 +35,7 @@ class ProgramMasterPanel extends FormPanel {
                 name="name"
                 value={edited.nameProgram}
                 readOnly={readOnly}
+                reset={reset}
                 required={true}
                 onChange={(v, s) => this.updateAttribute("nameProgram", v)}
               />
@@ -51,6 +52,7 @@ class ProgramMasterPanel extends FormPanel {
                 value={edited?.validityDate}
                 required
                 module="program"
+                reset={reset}
                 label={formatMessage(intl, "program", "validityDate")}
                 readOnly={readOnly}
                 onChange={(validityDate) => onEditedChanged({ ...edited, validityDate })}
