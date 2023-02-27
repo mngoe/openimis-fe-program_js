@@ -8,6 +8,7 @@
     "program.openNewTab": "Open in new tab",
     "program.deleteDialog.message": "Are you sure you want to delete this program?",
     "program.addNewProgram.tooltip": "Add new program",
+    "program.deleteProgram.tooltip": "Delete this program",
     "program.ProgramOverview.newTitle": "New Program",
     "program.label": "Program",
     "program.programPicker.placeholder": "Select Program",
@@ -15,5 +16,8 @@
     "program.edit.title": "Program {name}",
     "program.ProgramForm.name": "Name of program",
     "program.createProgram.mutationLabel": "Create program {name}",
-    "program.updateProgram.mutationLabel": "Update program {name}"
+    "program.updateProgram.mutationLabel": "Update program {name}",
+    "program.DeleteProgram.mutationLabel": "Delete program {name}",
+    "program.deleteProgramDialog.title": "Delete program - {label}?",
+    "program.deleteProgramDialog.message": "Are you sure you want to delete program {label}?"
 }

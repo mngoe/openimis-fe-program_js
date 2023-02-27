@@ -105,9 +105,9 @@ function reducer(
         case "PROGRAM_PROGRAM_DELETE_RESP":
             return dispatchMutationResp(state, "deleteProgram", action);
         case "PROGRAM_PROGRAM_UPDATE_RESP":
-            return dispatchMutationResp(state, "updateUser", action);
+            return dispatchMutationResp(state, "updateProgram", action);
         case "PROGRAM_PROGRAM_CREATE_RESP":
-            return dispatchMutationResp(state, "createUser", action);
+            return dispatchMutationResp(state, "createProgram", action);
         default:
             return state;
     }

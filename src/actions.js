@@ -2,7 +2,6 @@ import {
     graphql,
     formatPageQueryWithCount,
     formatMutation,
-    fetchMutation,
     decodeId,
     toISODate
 } from "@openimis/fe-core";
@@ -34,20 +33,15 @@ export function fetchProgram(mm, programName) {
 }
 
 export function deleteProgram(mm, program, clientMutationLabel) {
-    const mutation = formatMutation("deleteProgram", `idProgram: ["${program.idProgram}"]`, clientMutationLabel);
-    // eslint-disable-next-line no-param-reassign
-    user.clientMutationId = mutation.clientMutationId;
-    return (dispatch) => {
-        dispatch(
-            graphql(mutation.payload, ["ADMIN_PROGRAM_MUTATION_REQ", "ADMIN_PROGRAM_DELETE_RESP", "ADMIN_PROGRAM_MUTATION_ERR"], {
-                clientMutationId: mutation.clientMutationId,
-                clientMutationLabel,
-                programId: program.idProgram,
-            }),
-        );
-        dispatch(fetchMutation(mutation.clientMutationId));
-    };
-}
+    let mutation = formatMutation("deleteProgram", formatProgramGQL(mm, program), clientMutationLabel);
+    var requestedDateTime = new Date();
+    program.clientMutationId = mutation.clientMutationId;
+    return graphql(mutation.payload, ["PROGRAM_PROGRAM_MUTATION_REQ", "PROGRAM_PROGRAM_DELETE_RESP", "PROGRAM_PROGRAM_MUTATION_ERR"], {
+        clientMutationId: mutation.clientMutationId,
+        clientMutationLabel,
+        requestedDateTime,
+    });
+};
 
 export function formatProgramGQL(mm, program) {
     return `
