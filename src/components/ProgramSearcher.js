@@ -10,7 +10,7 @@ import {
   formatMessage,
   Searcher,
   ConfirmDialog,
-  formatDateFromISO
+  formatDateFromISO,
 } from "@openimis/fe-core";
 import ProgramFilter from "./ProgramFilter";
 
@@ -37,7 +37,7 @@ const getAligns = () => {
 
 class ProgramSearcher extends Component {
   state = {
-    deleteUser: null,
+    deleteProgram: null,
     params: {},
   };
 
@@ -65,14 +65,14 @@ class ProgramSearcher extends Component {
 
   deleteProgram = (isConfirmed) => {
     if (!isConfirmed) {
-      this.setState({ deleteUser: null });
+      this.setState({ deleteProgram: null });
     } else {
-      const user = this.state.deleteUser;
-      this.setState({ deleteUser: null }, async () => {
-        await this.props.deleteUser(
+      const program = this.state.deleteProgram;
+      this.setState({ deleteProgram: null }, async () => {
+        await this.props.deleteProgram(
           this.props.modulesManager,
-          user,
-          formatMessage(this.props.intl, "program", "deleteDialog.title"),
+          program,
+          formatMessageWithValues(this.props.intl, "program", "DeleteProgram.mutationLabel", { name: program.nameProgram }),
         );
         this.fetch(this.state.params);
       });
@@ -81,18 +81,17 @@ class ProgramSearcher extends Component {
 
   itemFormatters = () => {
     const formatters = [
-      (u) => u.nameProgram,
-      (u) => formatDateFromISO(this.props.modulesManager, this.props.intl, u.validityDate),
-      (u) => (
+      (p) => p.nameProgram,
+      (p) => formatDateFromISO(this.props.modulesManager, this.props.intl, p.validityDate),
+      (p) => (
         <>
           <Tooltip title={formatMessage(this.props.intl, "program", "openNewTab")}>
-            <IconButton onClick={() => this.props.onDoubleClick(u, true)}>
+            <IconButton onClick={() => this.props.onDoubleClick(p, true)}>
               <TabIcon />
             </IconButton>
           </Tooltip>
-
-          <Tooltip title={formatMessage(this.props.intl, "program", "deleteUser.tooltip")}>
-            <IconButton onClick={() => this.setState({ deleteUser: u })}>
+          <Tooltip title={formatMessage(this.props.intl, "program", "deleteProgram.tooltip")}>
+            <IconButton onClick={() => this.setState({ deleteProgram: p })}>
               <DeleteIcon />
             </IconButton>
           </Tooltip>
@@ -108,7 +107,7 @@ class ProgramSearcher extends Component {
       this.props;
     return (
       <>
-        {this.state.deleteUser && (
+        {this.state.deleteProgram && (
           <ConfirmDialog
             confirm={{
               title: formatMessage(intl, "program", "deleteDialog.title"),
@@ -147,7 +146,6 @@ class ProgramSearcher extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  rights: state.core?.i_user?.rights ?? [],
   programs: state.program.programsSummaries.items,
   programsPageInfo: state.program.programsSummaries.pageInfo,
   fetchingPrograms: state.program.programsSummaries.isFetching,
