@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { injectIntl } from "react-intl";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import { withTheme, withStyles } from "@material-ui/core/styles";
-import { withModulesManager, withHistory, historyPush } from "@openimis/fe-core";
+import { formatMessageWithValues, withModulesManager, withHistory, historyPush } from "@openimis/fe-core";
 import ProgramForm from "../components/ProgramForm";
+import { createProgram, updateProgram } from "../actions";
 
 const styles = (theme) => ({
   page: theme.page,
@@ -16,6 +18,19 @@ class ProgramPage extends Component {
   };
 
   save = (program) => {
+    if (!program.idProgram) {
+      this.props.createProgram(
+        this.props.modulesManager,
+        program,
+        formatMessageWithValues(this.props.intl, "program", "CreateProgram.mutationLabel", { name: program.nameProgram }),
+      );
+    } else {
+      this.props.updateProgram(
+        this.props.modulesManager,
+        program,
+        formatMessageWithValues(this.props.intl, "program", "UpdateProgram.mutationLabel", { name: program.nameProgram }),
+      );
+    }
   };
 
   render() {
@@ -37,8 +52,12 @@ const mapStateToProps = (state, props) => ({
   program_name: props.match.params.program_name,
 });
 
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ createProgram, updateProgram }, dispatch);
+};
+
 export default withHistory(
   withModulesManager(
-    connect(mapStateToProps)(injectIntl(withTheme(withStyles(styles)(ProgramPage)))),
+    connect(mapStateToProps,mapDispatchToProps)(injectIntl(withTheme(withStyles(styles)(ProgramPage)))),
   ),
 );
