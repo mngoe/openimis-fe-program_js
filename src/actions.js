@@ -4,6 +4,7 @@ import {
     formatMutation,
     fetchMutation,
     decodeId,
+    toISODate
 } from "@openimis/fe-core";
 
 const PROGRAM_SUMMARY_PROJECTION = [
@@ -53,7 +54,7 @@ export function formatProgramGQL(mm, program) {
     ${program.id !== undefined && program.id !== null ? `id: ${decodeId(program.id)}` : ""}
     ${program.idProgram !== undefined && program.idProgram !== null ? `idProgram: "${program.idProgram}"` : ""}
       nameProgram: "${program.nameProgram}"
-      validityDate: "${program.validityDate}"
+      validityDate: "${toISODate(program.validityDate)}"
     `;
 }
 

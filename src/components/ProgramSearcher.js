@@ -10,6 +10,7 @@ import {
   formatMessage,
   Searcher,
   ConfirmDialog,
+  formatDateFromISO
 } from "@openimis/fe-core";
 import ProgramFilter from "./ProgramFilter";
 
@@ -81,7 +82,7 @@ class ProgramSearcher extends Component {
   itemFormatters = () => {
     const formatters = [
       (u) => u.nameProgram,
-      (u) => u.validityDate,
+      (u) => formatDateFromISO(this.props.modulesManager, this.props.intl, u.validityDate),
       (u) => (
         <>
           <Tooltip title={formatMessage(this.props.intl, "program", "openNewTab")}>
