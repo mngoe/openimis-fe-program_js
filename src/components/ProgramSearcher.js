@@ -26,7 +26,7 @@ const getHeaders = () => [
 
 const getSorts = () => [
   ["nameProgram", true],
-  ["validityDate", false],
+  ["validityDateFrom", false],
 ];
 
 const getAligns = () => {
@@ -82,7 +82,7 @@ class ProgramSearcher extends Component {
   itemFormatters = () => {
     const formatters = [
       (p) => p.nameProgram,
-      (p) => formatDateFromISO(this.props.modulesManager, this.props.intl, p.validityDate),
+      (p) => formatDateFromISO(this.props.modulesManager, this.props.intl, p.validityDateFrom),
       (p) => (
         <>
           <Tooltip title={formatMessage(this.props.intl, "program", "openNewTab")}>
