@@ -45,18 +45,18 @@ class ProgramMasterPanel extends FormPanel {
         />
         <ControlledField
           module="program"
-          id="Program.validityDate"
+          id="Program.validityDateFrom"
           field={
             <Grid item xs={4} className={classes.item}>
               <PublishedComponent
                 pubRef="core.DatePicker"
-                value={edited?.validityDate}
+                value={edited?.validityDateFrom}
                 required
                 module="program"
                 reset={reset}
-                label={formatMessage(intl, "program", "validityDate")}
+                label={formatMessage(intl, "program", "validityDateFrom")}
                 readOnly={readOnly}
-                onChange={(validityDate) => onEditedChanged({ ...edited, validityDate })}
+                onChange={(validityDateFrom) => onEditedChanged({ ...edited, validityDateFrom })}
               />
             </Grid>
           }

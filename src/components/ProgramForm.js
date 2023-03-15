@@ -83,7 +83,7 @@ class ProgramForm extends Component {
 
   canSave = () => {
     if (!this.state.program.nameProgram) return false;
-    if (!this.state.program.validityDate) return false;
+    if (!this.state.program.validityDateFrom) return false;
     return true;
   };
 

@@ -10,7 +10,7 @@ const PROGRAM_SUMMARY_PROJECTION = [
     "id",
     "idProgram",
     "nameProgram",
-    "validityDate"
+    "validityDateFrom"
 ];
 
 export function fetchProgramsSummaries(mm, filters) {
@@ -26,7 +26,7 @@ export function fetchProgram(mm, programName) {
         "id",
         "idProgram",
         "nameProgram",
-        "validityDate",
+        "validityDateFrom",
     ];
     const payload = formatPageQueryWithCount("program", filters, projections);
     return graphql(payload, "PROGRAM_PROGRAM");
@@ -48,7 +48,7 @@ export function formatProgramGQL(mm, program) {
     ${program.id !== undefined && program.id !== null ? `id: ${decodeId(program.id)}` : ""}
     ${program.idProgram !== undefined && program.idProgram !== null ? `idProgram: "${program.idProgram}"` : ""}
       nameProgram: "${program.nameProgram}"
-      validityDate: "${toISODate(program.validityDate)}"
+      validityDateFrom: "${toISODate(program.validityDateFrom)}"
     `;
 }
 
