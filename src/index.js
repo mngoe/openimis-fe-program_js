@@ -1,4 +1,5 @@
 import messages_en from "./translations/en.json";
+import messages_fr from "./translations/fr.json";
 import ProgramPicker from "./pickers/ProgramPicker";
 import ProgramsPage from "./pages/ProgramsPage";
 import ProgramPage from "./pages/ProgramPage";
@@ -10,7 +11,10 @@ const ROUTE_PROGRAM_PROGRAM_OVERVIEW = "programs/overview";
 const ROUTE_PROGRAM_PROGRAM_NEW = "program/programs/new";
 
 const DEFAULT_CONFIG = {
-  "translations": [{ key: "en", messages: messages_en }],
+  "translations": [
+    { key: "en", messages: messages_en }, 
+    { key: "fr", messages: messages_fr }
+  ],
   "reducers": [{key: 'program', reducer}],
   "refs": [
     { key: "program.ProgramPicker", ref: ProgramPicker },

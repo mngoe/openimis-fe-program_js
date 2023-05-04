@@ -1,0 +1,23 @@
+{
+    "program.ProgramPicker.placeholder": "Selectionner un programme",
+    "program.programSummaries": "{count} programme(s) trouvé",
+    "program.program.name": "Nom du Programme",
+    "program.program.validity": "Validité",
+    "program.validityDateFrom": "Valide du",
+    "program.deleteDialog.title": "Supprimer un programme",
+    "program.openNewTab": "Ouvrir dans un nouvel onglet",
+    "program.deleteDialog.message": "êtes sûre de vouloir supprimer ce programme?",
+    "program.addNewProgram.tooltip": "Ajouter un nouveau programme",
+    "program.deleteProgram.tooltip": "Supprimer ce programme",
+    "program.ProgramOverview.newTitle": "Nouveau Programme",
+    "program.label": "Programme",
+    "program.programPicker.placeholder": "Selectionner un programme",
+    "program.edit.page.title": "Programme {name}",
+    "program.edit.title": "Programme {name}",
+    "program.ProgramForm.name": "Nom du programme",
+    "program.createProgram.mutationLabel": "Creation du programme {name}",
+    "program.updateProgram.mutationLabel": "Mise à jour du programme {name}",
+    "program.DeleteProgram.mutationLabel": "Supprimer le programme {name}",
+    "program.deleteProgramDialog.title": "Supprimer le programme - {label}?",
+    "program.deleteProgramDialog.message": "Etes-vous sure de vouloir supprimer le programme {label}?"
+}
