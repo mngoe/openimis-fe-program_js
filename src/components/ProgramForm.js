@@ -8,7 +8,8 @@ import {
   Form,
   withModulesManager,
   withHistory,
-  ProgressOrError
+  ProgressOrError,
+  journalize
 } from "@openimis/fe-core";
 import { bindActionCreators } from "redux";
 import { fetchProgram } from "../actions";
@@ -22,7 +23,6 @@ class ProgramForm extends Component {
   state = {
     lockNew: false,
     reset: 0,
-    update: 0,
     program_name: null,
     program: this._newProgram(),
     newProgram: true,
@@ -58,6 +58,7 @@ class ProgramForm extends Component {
     } else if (prevProps.program_name && !this.props.program_name) {
       this.setState({ program: this._newProgram(), lockNew: false, program_name: null });
     } else if (prevProps.submittingMutation && !this.props.submittingMutation) {
+      this.props.journalize(this.props.mutation);
       this.setState((state) => ({ reset: state.reset + 1 }));
     }
   }
@@ -160,7 +161,7 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ fetchProgram }, dispatch);
+  return bindActionCreators({ fetchProgram, journalize }, dispatch);
 };
 
 export default withHistory(

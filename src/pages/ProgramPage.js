@@ -3,7 +3,7 @@ import { injectIntl } from "react-intl";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { withTheme, withStyles } from "@material-ui/core/styles";
-import { formatMessageWithValues, withModulesManager, withHistory, historyPush } from "@openimis/fe-core";
+import { formatMessageWithValues, withModulesManager, withHistory, historyPush, journalize } from "@openimis/fe-core";
 import ProgramForm from "../components/ProgramForm";
 import { createProgram, updateProgram } from "../actions";
 
@@ -53,7 +53,7 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ createProgram, updateProgram }, dispatch);
+  return bindActionCreators({ createProgram, updateProgram, journalize }, dispatch);
 };
 
 export default withHistory(

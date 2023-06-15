@@ -15,7 +15,7 @@
     "program.edit.page.title": "Program {name}",
     "program.edit.title": "Program {name}",
     "program.ProgramForm.name": "Name of program",
-    "program.createProgram.mutationLabel": "Create program {name}",
+    "program.CreateProgram.mutationLabel": "Create program {name}",
     "program.updateProgram.mutationLabel": "Update program {name}",
     "program.DeleteProgram.mutationLabel": "Delete program {name}",
     "program.deleteProgramDialog.title": "Delete program - {label}?",
