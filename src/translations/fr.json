@@ -2,6 +2,7 @@
     "program.ProgramPicker.placeholder": "Selectionner un programme",
     "program.programSummaries": "{count} programme(s) trouvé",
     "program.program.name": "Nom du Programme",
+    "program.ProgramForm.code": "Code du Programme",
     "program.program.code": "Code du programme",
     "program.program.validity": "Validité",
     "program.validityDateFrom": "Valide du",

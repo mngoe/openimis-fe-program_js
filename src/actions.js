@@ -28,6 +28,7 @@ export function fetchProgram(mm, programName) {
         "idProgram",
         "nameProgram",
         "validityDateFrom",
+        "code",
     ];
     const payload = formatPageQueryWithCount("program", filters, projections);
     return graphql(payload, "PROGRAM_PROGRAM");
