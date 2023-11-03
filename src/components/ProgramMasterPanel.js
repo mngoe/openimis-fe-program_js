@@ -25,6 +25,25 @@ class ProgramMasterPanel extends FormPanel {
 
     return (
       <Grid container>
+          <ControlledField
+          module="program"
+          id="program.code"
+          field={
+            <Grid item xs={4} className={classes.item}>
+              <TextInput
+                module="program"
+                label="ProgramForm.code"
+                name="code"
+                value={edited.code}
+                readOnly={readOnly}
+                reset={reset}
+                required={true}
+                inputProps={{maxLength:3}}
+                onChange={(v, s) => this.updateAttribute("code", v)}
+              />
+            </Grid>
+          }
+        />
         <ControlledField
           module="program"
           id="program.name"

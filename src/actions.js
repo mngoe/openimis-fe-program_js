@@ -10,7 +10,8 @@ const PROGRAM_SUMMARY_PROJECTION = [
     "id",
     "idProgram",
     "nameProgram",
-    "validityDateFrom"
+    "validityDateFrom",
+    "code"
 ];
 
 export function fetchProgramsSummaries(mm, filters) {
@@ -49,6 +50,7 @@ export function formatProgramGQL(mm, program) {
     ${program.idProgram !== undefined && program.idProgram !== null ? `idProgram: "${program.idProgram}"` : ""}
       nameProgram: "${program.nameProgram}"
       validityDateFrom: "${toISODate(program.validityDateFrom)}"
+      code: "${program.code}"
     `;
 }
 
