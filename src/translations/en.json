@@ -2,6 +2,8 @@
     "program.ProgramPicker.placeholder": "Select Program",
     "program.programSummaries": "{count} program(s) found",
     "program.program.name": "Program Name",
+    "program.ProgramForm.code": "Program code",
+    "program.program.code": "Program code",
     "program.program.validity": "Validity",
     "program.validityDateFrom": "Validity date From",
     "program.deleteDialog.title": "Delete program",
