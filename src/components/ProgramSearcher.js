@@ -19,12 +19,14 @@ import { fetchProgramsSummaries, deleteProgram } from "../actions";
 const PROGRAM_SEARCHER_CONTRIBUTION_KEY = "program.ProgramSearcher";
 
 const getHeaders = () => [
+  "program.program.code",
   "program.program.name",
   "program.program.validity",
   "",
 ];
 
 const getSorts = () => [
+  ["code", true]
   ["nameProgram", true],
   ["validityDateFrom", false],
 ];
@@ -81,6 +83,7 @@ class ProgramSearcher extends Component {
 
   itemFormatters = () => {
     const formatters = [
+      (p) => p.code,
       (p) => p.nameProgram,
       (p) => formatDateFromISO(this.props.modulesManager, this.props.intl, p.validityDateFrom),
       (p) => (
