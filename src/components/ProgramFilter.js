@@ -72,6 +72,30 @@ class ProgramFilter extends Component {
               </Grid>
             }
           />
+           <ControlledField
+            module="program"
+            id="programFilter.code"
+            field={
+              <Grid item xs={3} className={classes.item}>
+                <TextInput
+                  module="program"
+                  label="program.code"
+                  name="code"
+                  value={this.filterValue("code")}
+                  inputProps={{maxLength:3}}
+                  onChange={(v) =>
+                    this.debouncedOnChangeFilter([
+                      {
+                        id: "code",
+                        value: v,
+                        filter: `code_Icontains: "${v}"`,
+                      },
+                    ])
+                  }
+                />
+              </Grid>
+            }
+          />
         </Grid>
       </section>
     );
